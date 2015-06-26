@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaitas Portfolio</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header class="container add-bottom">
+    <div class="row">
+      <div data-bind="css: colName">
+        <img class="header-img img-responsive img-circle" src="images/logo.jpeg" alt="Header Image">
+      </div>
+      <div class="col-md-6 text-right text-uppercase">
+        <h1 class="headerName">Constantinos Chaitas</h1>
+        <h4 class="headerRole">Web Developer</h4>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Me Section -->
+    <section class="gray add-bottom">
+      <div class="container">
+        <h2 class="text-center">About Me</h2>
+        <hr class="faded faded-moz">
+        <div class="about-me">
+          <p>
+            Hi! My name is Constantinos Chaitas and I'm a new computer engineer who found his true passion in programming. I just finished my bachelor and i am thinking to make a master on computer science. I started teaching myself how to code about 6 months ago and i totally love it. Almost immediately, I knew this is what I wanted to do with my life!  I love the combination of creative and logical problem-solving skills I get to use when writing code.  And I love how there's always more to learn!  Since I started coding, I've taken as many online courses as I can manage, completed Udacity's Front-End Web Developer Nanodegree, and built some awesome projects!  Please have a look! 
+          </p>
+        </div>
+        <hr class="faded faded-moz">
+        <div class="text-center">
+          <a href="#projects">
+            <button class="add-top">View My Projects</button>
+          </a>
+          <a target="_blank" href="#">
+            <button class="add-top">View My Resume</button>
+          </a>
+          <a href="#contacts">
+            <button class="add-top">Get in Touch!</button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="arrow-down"></div>
+
+    <!-- Project Gallery -->
+    <section id="projects" class="container" data-bind="foreach: projectsInRows">
+      <div class="row text-center add-bottom">
+        <div data-bind="foreach: {data: content, as: 'project'}">
+          <div data-bind="css: colName">
+            <h3 class="project-title" data-bind="text: name"></h3>
+            <div class="project">
+              <img class="project-img img-responsive center-block"  alt="Project Image" data-toggle="modal" data-target="#project1" data-bind="attr: {src: project.image, 'data-target': project.idWithHash}, click: goToProject.bind(project)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="gray">
+    <div class="container">
+      <div class="row">
+        <h3 class="text-center text-thin">Contact Me</h3>
+        <hr class="faded faded-moz">
+      </div>
+      <div id="contacts" class="add-top text-center">
+        <a href="mailto:xaitakon@gmail.com"><i class="fa fa-envelope fa-3x"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-linkedin-square fa-3x"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a>
+        
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div data-bind="with: chosenProject">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-bind="attr: {id: chosenProject().id}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <i class="fa fa-close fa-3x pull-right" data-dismiss="modal"></i>
+            <h3 class="modal-title text-center text-uppercase" id="myModalLabel" data-bind="text: name"></h3>
+            
+          </div>
+          <div class="modal-body text-center">
+            <img class="img-responsive modal-img" alt="Project Image" data-bind="attr: {src: image}">
+            <a target="_blank" data-bind="attr: {href: url}">
+              <button>View Project</button>
+            </a>
+            <a target="_blank" data-bind="attr: {href: github}">
+              <button>View GitHub</button>
+            </a>
+          </div>
+          <div class="modal-footer">
+            <p class="project-description" data-bind="html: description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/knockout-3.3.0.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
