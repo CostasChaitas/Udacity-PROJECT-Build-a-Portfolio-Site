@@ -39,7 +39,7 @@ function appViewModel() {
         },
         {
             name: 'My Resume',
-            url: '#',
+            url: 'http://rasakos.github.io/Udacity-PROJECT-Interactive-Resume/',
             github: '',
             image: 'images/myresume2.jpeg',
             description: "This was the second project in Udacity's Front-End Web Developer Nanodegree.  " +
